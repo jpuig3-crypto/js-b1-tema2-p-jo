@@ -17,10 +17,24 @@
 */
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+class Triangle {
+  constructor(base, height) {
+    this.base = base;
+    this.height = height;
+  }
+};
+
+const randomTriangle = {
+  base: 2,
+  height: 6,
+};
 
 
+const triangle1 = new Triangle(2, 6);
+const triangle2 = new Triangle(5, 10);
+const triangles = [triangle1, triangle2];
 
-
+console.log(triangles);
 
 /**
  * TEST
