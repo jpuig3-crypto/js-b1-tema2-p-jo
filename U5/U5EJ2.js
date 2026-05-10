@@ -32,9 +32,56 @@
 	Finalment, crea almenys 3 objectes de la classe Car i fes 3 crides a aquests nous mètodes.
 */
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+class Car {
+	constructor(brand, year, displacement, horsePower) {
+		this.brand = brand;
+		this.year = year;
+		this.displacement = displacement;
+		this.horsePower = horsePower;
+	}
 
+	cw2kw(){
+		return this.horsePower * 0.736;
+	}
 
+	static compareAntiquaty(car1, car2){
+		if (car1.year < car2.year) {
+			return car1;
+		}
 
+		return car2;
+	}
+
+	static maxDisplacement(cars){
+
+		let maxCar = cars[0];
+
+		for (let i = 1; i < cars.length; i++) {
+
+			if (cars[i].displacement > maxCar.displacement) {
+				maxCar = cars[i];
+			}
+		}
+
+		return maxCar;
+	}
+}
+
+const car1 = new Car("Ford", 1998, 1800, 120);
+const car2 = new Car("BMW", 2005, 3000, 150);
+const car3 = new Car("Audi", 2015, 2200, 190);
+
+console.log(
+	Car.compareAntiquaty(car1, car2)
+);
+
+console.log(
+	Car.maxDisplacement([car1, car2, car3])
+);
+
+console.log(
+	car1.cw2kw()
+);
 
 
 
