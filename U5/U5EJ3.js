@@ -38,10 +38,101 @@
 	Finalment, crea almenys 3 objectes de la classe Triangle i fes 3 trucades a aquests nous mètodes.
 */
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+class Triangle {
+
+	constructor(base, height, rightTriangle) {
+		this.base = base;
+		this.height = height;
+		this.rightTriangle = rightTriangle;
+	}
+
+	get areaTriangle() {
+		return (this.base * this.height) / 2;
+	}
+
+	get rightHypotenuse() {
+
+		if(!this.rightTriangle) {
+			return undefined;
+		}
+
+		return Math.sqrt(
+			(this.base ** 2) + (this.height ** 2)
+		);
+	}
+
+	get rightPerimeter() {
+
+		if (!this.rightTriangle) {
+			return undefined;
+		}
+
+		return (
+			this.base +
+			this.height +
+			this.rightHypotenuse
+		);
+	}
+
+	static rightTriangleUnion(triangle1, triangle2) {
+
+		if(
+			!triangle1.rightTriangle ||
+			!triangle2.rightTriangle
+		) {
+			return undefined;
+		}
+
+		return (
+			triangle1.rightPerimeter +
+			triangle2.rightPerimeter +
+			Math.abs(
+				triangle1.height - triangle2.height
+			)
+		);
+	}
+
+	static areaPoligon(triangle) {
+
+		let totalArea = 0;
+
+		for (let i = 0; i < triangle.length; i++) {
+			totalArea += triangle[i].areaTriangle;
+		}
+
+		return totalArea;
+	}
+}
 
 
+const triangle1 = new Triangle(3, 4, true);
+const triangle2 = new Triangle(5, 12, true);
+
+const myEquilateral = new Triangle(
+	10,
+	10 * Math.sqrt(3) / 2,
+	false
+);
+
+console.log(
+	Triangle.rightTriangleUnion([
+		triangle1,
+		triangle2
+	])
+);
+
+console.log(
+	Triangle.areaPoligon([
+		triangle1,
+		triangle2,
+		myEquilateral
+	])
+);
 
 
+console.log(
+	myEquilateral.isEquilateral()
+);
 
 
 /**
