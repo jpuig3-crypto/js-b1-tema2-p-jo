@@ -38,8 +38,47 @@ class Planet {
 }
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+const myJSON = `
+[
+	{
+		"name": "Mercury",
+		"distanceToSun": 58344000,
+		"hasRings": false,
+		"diameter": 4878
+	},
+	{
+		"name": "Jupiter",
+		"distanceToSun": 777920000,
+		"hasRings": true,
+		"diameter": 142984
+	},
+	{
+		"name": "Mars",
+		"distanceToSun": 227392000,
+		"hasRings": false,
+		"diameter": 6787
+	}
+]
+`;
 
 
+const parsedPlanets = JSON.parse(myJSON);
+
+
+
+const planets = parsedPlanets.map(
+	planet => new Planet(
+		planet.name,
+		planet.distanceToSun,
+		planet.hasRings,
+		planet.diameter,
+	)
+);
+
+
+const planetsBTE = Planet.biggerThanEarth(planets);
+
+console.log(planetsBTE);
 
 
 /**
