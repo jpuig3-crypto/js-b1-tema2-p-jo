@@ -49,7 +49,39 @@ class Planet {
 }
 
 //Escribe aquí tu solución / escriviu aquí la vostra solució:
+const myPlanet1 = new Planet("Mercury", 58344000, false);
+const myPlanet2 = new Planet("Venus", 107712000, false);
+const myPlanet3 = new Planet("Earth", 149600000, false);
+const myPlanet4 = new Planet("Mars", 227392000, false);
+const myPlanet5 = new Planet("Jupiter", 777920000, true);
+const myPlanet6 = new Planet("Saturn", 142718400, true);
+const myPlanet7 = new Planet("Uranus", 2600000000, true);
+const myPlanet8 = new Planet("Neptune", 4300000000, true);
 
+
+const planets = [
+	myPlanet1,
+	myPlanet2,
+	myPlanet3,
+	myPlanet4,
+	myPlanet5,
+	myPlanet6,
+	myPlanet7,
+	myPlanet8
+];
+
+console.log(myPlanet3.nameOftheStar());
+
+const ringPlanets = Planet.planetsWithRings(planets);
+
+console.log(ringPlanets);
+
+console.log(
+	Planet.distanceBetweenPlanets(
+		myPlanet1,
+		myPlanet2
+	)
+);
 
 
 /**
